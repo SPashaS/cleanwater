@@ -1,0 +1,182 @@
+.header {
+	padding-top: 40px;
+
+  // .header__container
+  &__container {}
+
+  // .header__wrapper
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  // .header__logo
+  &__logo {
+    background-image: url("@img/logo-mob.png");
+    background-size: cover;
+    width: 70px;
+    aspect-ratio: 26/15;
+
+    @media (min-width:$mobileS) {
+      width: 104px;
+    }
+
+    @media (min-width:$mobile){
+      background-image: url("@img/logo.png");
+      aspect-ratio: 71/20;
+      width: 213px;
+    }
+  }
+
+  // .header__menu
+  &__menu {
+    @media (max-width:$tablet){
+      order: 2;
+    }
+  }
+
+  // .header__phone
+  &__phone {
+    color: var(--black-color);
+    font-weight: 500;
+    @media (max-width:$mobileS){
+        font-size: 2rem;
+    }
+  }
+}
+.menu {
+  position: relative;
+  // .menu__burger
+  &__burger {}
+
+  // .menu__body
+  &__body {
+
+    @media (max-width:$tablet){
+      background: rgba(92, 91, 101, 0.8);
+      color: var(--light-color);
+      width: 290px;
+      position: absolute;
+      z-index: 10;
+      right: 0;
+      top: 0;
+      transform: translateX(120%);
+      transition: all 0.3s ease 0s;
+
+      padding: 45px 30px 30px;
+      border-radius: 32px 0 32px 32px;
+
+      .menu-open & {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  // .menu__list
+  &__list {
+    display: flex;
+    gap: 30px;
+
+    flex-direction: column;
+
+    @media (max-width:$tablet){
+      align-items: center;
+      a {
+        font-size: 3rem;
+      }
+    }
+
+    @media (min-width:$tablet){
+      flex-direction: row; 
+    }
+
+    @media (min-width:$pc){
+      gap: 60px;
+    }
+  }
+
+}
+
+.menu-item {
+  font-size: 1.8rem;
+}
+
+
+//====================================================================================================
+
+//====================================================================================================
+//Burger
+.burger {
+  display: none;
+
+  @media (max-width: $tablet) {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 35;
+
+    &__lines {
+      display: block;
+      width: 30px;
+      height: 100%;
+      position: relative;
+
+      &::before,
+      &::after {
+        content: "";
+      }
+
+      &::before,
+      &::after,
+      & span {
+        transition: all 0.3s ease 0s;
+        width: 100%;
+        right: 0px;
+        position: absolute;
+        height: 2px;
+        background-color: var(--blue-color);
+      }
+      
+      &::before {
+        top: 0px;
+      }
+      
+      &::after {
+        bottom: 0px;
+      }
+      
+      span {
+        width: 20px;
+        top: calc(50% - 1px);
+      }
+      
+      .menu-open & {
+        &::before,
+        &::after,
+        & span {
+          background-color: var(--light-color);
+        }
+
+        &::before {
+          transform: rotate(-45deg);
+          top: calc(50% - 1px);
+        }
+
+        &::after {
+          transform: rotate(45deg);
+          bottom: calc(50% - 1px);
+        }
+
+        span {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

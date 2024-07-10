@@ -1,0 +1,111 @@
+// Заголовки, общие БЄМ блоки и проче...
+
+
+//====================================================================================================
+.title {
+  color: var(--title-text-color);
+}
+
+//====================================================================================================
+
+h1, h2, h3 {
+  color: var(--black-color);
+  line-height: 1;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 6.4rem;
+
+  @include adaptiveValue("font-size",64,30);
+}
+
+h2 {
+  font-weight: 500;
+  @include adaptiveValue("font-size",60,28);
+
+  margin-bottom: 1em;
+}
+
+h3 {
+  font-weight: 600;
+  // font-size: 4rem;
+
+  @include adaptiveValue("font-size",40,26);
+}
+
+
+.h4 {
+  // font-size: 3.2rem;
+  @include adaptiveValue("font-size",32,25);
+  font-weight: 500;
+}
+
+.h5 {
+  // font-size: 2.8rem;
+  @include adaptiveValue("font-size",28,23);
+}
+
+.h6 {
+  // font-size: 2.4rem;
+  @include adaptiveValue("font-size",24,22);
+}
+
+//====================================================================================================
+
+.text {
+  b {
+    font-weight: 600;
+  }
+
+  p:not(:last-child) {
+    margin-bottom: 1em;
+  }
+}
+
+.fs {
+  &_s {
+    font-size: 1.6rem;
+  }
+
+  &_m {
+    font-size: 2rem;
+  }
+}
+
+
+.icon {
+  display: inline-block;
+  width: 44px;
+  aspect-ratio: 1/1;
+
+  &_c-glad {
+    background-image: url("@img/icon/circle.svg");
+    background-size: cover;
+  }
+}
+
+.list-glad {
+  li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &::before {
+      @extend %ic;
+      content: "\e90d";
+      color: var(--blue-color);
+      font-size: 9px;
+    }
+  }
+}
+
+//====================================================================================================
+
+
+
+//====================================================================================================
+
+
+
+//====================================================================================================
